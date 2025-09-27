@@ -1,0 +1,414 @@
+@font-face {
+  font-family: "Comfortaa"; 
+  src: url("./src/content/fonts/Comfortaa-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Pacifico"; 
+  src: url("./src/content/fonts/Pacifico-Regular.ttf") format("truetype");
+}
+
+:root {
+  --text-font: "Comfortaa", sans-serif;
+  --text-color: #FFFFFF;
+}
+
+/* Убираем отступы браузера */
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: var(--text-font)
+}
+
+.bg-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.window {
+  width: 95%;
+  max-width: 1600px;
+  height: 825px; /* фиксированная высота для десктопа */
+  max-height: 90vh; /* ограничение по экрану */
+  margin: 50px auto;
+  padding: 3px;
+  border-radius: 33px;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  color: var(--text-color);
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow: hidden;
+}
+
+.glass-window {
+  backdrop-filter: blur(10px);               /* размывает фон позади */
+  -webkit-backdrop-filter: blur(10px);       /* для Safari */
+}
+
+.control-bar {
+  margin-top: 8px;
+  margin-left: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 130px;
+  height: 50px;
+  border-radius: 25px;
+  background-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.control-bar {
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: transform 0.7s ease;
+}
+
+.control-bar:hover {
+  transform: scale(1.05);
+}
+
+.control-bar:hover .green {
+  background-image: url('./src/content/images/green_symbol.png');
+}
+
+.control-bar:hover .yellow {
+  background-image: url('./src/content/images/yellow_symbol.png');
+}
+
+.control-bar:hover .red {
+  background-image: url('./src/content/images/red_symbol.png');
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.control-bar-buttons {
+  display: flex;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.control-bar-buttons li a {
+  display: block;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: transform 0.7s ease;
+}
+
+/* Эффект при наведении */
+.control-bar-buttons li a:hover {
+  transform: scale(1.15);
+}
+
+/* Иконки */
+a.red {
+  background-image: url('./src/content/images/red.png');
+}
+
+a.yellow {
+  background-image: url('./src/content/images/yellow.png');
+}
+
+a.green {
+  background-image: url('./src/content/images/green.png');
+}
+
+.divider-line {
+  width: 3px;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 0;
+  left: 32%; /* вместо фиксированных 510px */
+}
+
+.about-content {
+  position: absolute;
+  top: 100px;
+  left: 16%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.about-content h3 {
+  display: flex;
+  font-size: 25px;
+}
+
+.avatar {
+  width: 400px;
+  border: 5px solid rgba(255, 255, 255, 0.1); /* Толщина, тип линии, цвет */
+  border-radius: 180%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.nickname {
+  font-family: "Pacifico", sans-serif;
+  font-style: italic;
+  font-size: 55px;
+  margin-top: 0;
+  margin-bottom: 0;
+  display: flex;
+  color: rgba(177, 99, 192, 0.4);
+  /*text-shadow: 0 0px 5px rgba(238, 215, 243, 0.8);*/
+  text-stroke: 0.5px rgba(238, 215, 243, 0.4); /* Для других браузеров */
+  -webkit-text-stroke: 0.5px rgba(238, 215, 243, 0.4); /* Обводка толщиной 2px, черного цвета */
+}
+
+.description {
+  font-size: 25px;
+  line-height: 1.4;
+  margin-top: 10px;
+}
+
+.links-bar {
+  margin-top: 8px;
+  margin-left: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 260px;
+  height: 70px;
+  border-radius: 25px;
+  background-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.links-bar {
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: transform 0.7s ease;
+}
+
+.links-bar {
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: transform 0.7s ease;
+}
+
+.links-bar:hover {
+  transform: scale(1.05);
+}
+
+.links-bar-buttons li a {
+  display: block;
+  width: 50px;
+  height: 50px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: transform 0.7s ease;
+}
+
+.links-bar-buttons li a:hover{
+  transform: scale(1.05);
+}
+
+.links-bar-buttons {
+  display: flex;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* Иконки */
+a.github {
+  background-image: url('./src/content/images/github.png');
+} 
+
+a.discord {
+  background-image: url('./src/content/images/discord.png');
+}
+
+a.music {
+  background-image: url('./src/content/images/music.png');
+}
+
+a.email {
+  background-image: url('./src/content/images/email.png');
+}
+
+.projects-panel {
+  position: absolute;
+  top: 50px;
+  left: 35%;
+  right: 2%;
+  bottom: 50px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 10px;
+}
+
+.projects-panel::-webkit-scrollbar {
+  width: 6px;
+}
+
+.projects-panel::-webkit-scrollbar-thumb {
+  background-color: rgba(255,255,255,0.3);
+  border-radius: 3px;
+}
+
+.project-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: scale(1.02)
+}
+
+.project-info {
+  max-width: 70%;
+  color: #ffffff;
+  font-family: var(--text-font);
+}
+
+.project-info h2 {
+  margin: 0 0 10px;
+  font-size: 24px;
+  color: rgba(255,255,255,0.9);
+}
+
+.project-info p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.4;
+  color: rgba(255,255,255,0.8);
+}
+
+.project-preview {
+  width: 120px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 1200px) {
+  .avatar {
+    width: 300px;
+  }
+
+  .nickname {
+    font-size: 40px;
+  }
+
+  .description {
+    font-size: 20px;
+  }
+
+  .project-preview {
+    width: 100px;
+    height: 70px;
+  }
+
+  .project-info h2 {
+    font-size: 20px;
+  }
+
+  .project-info p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .window {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    max-height: none;
+    padding: 20px;
+    overflow: visible;
+  }
+
+  .about-content,
+  .projects-panel {
+    position: static;
+    width: 100%;
+  }
+
+  .projects-panel {
+    margin-top: 20px;
+  }
+
+
+  .divider-line {
+    display: none;
+  }
+
+  .project-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .project-preview {
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+  }
+
+  .avatar {
+    width: 250px;
+  }
+
+  .nickname {
+    font-size: 40px;
+  }
+
+  .description {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .about-content {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .projects-panel {
+    left: 0;
+    right: 0;
+    padding: 20px;
+  }
+
+  .project-card {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .project-preview {
+    width: 150px;
+    height: 100px;
+  }
+}
